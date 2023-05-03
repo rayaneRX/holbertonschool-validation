@@ -9,4 +9,4 @@ post: ## Create a new blog post whose filename and title come from the environme
 	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
 help: ## prints out the list of targets and their usage
-  @grep -E -i [a-z]+:.# Makefile | tr -d '##'
+	@grep -E -i [a-z]+:.# Makefile | tr -d '##'

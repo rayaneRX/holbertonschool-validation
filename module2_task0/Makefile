@@ -1,11 +1,22 @@
-build: ## Generate the website from the markdown and configuration files in the directory dist/.
-	go build	
+build: ## Generate the website from the markdown and configuration files in the directory dist/
+	go build
 
 clean: ## Cleanup the content of the directory dist/
 	rm -rf dist/*
 
-run: ## Run the application in background by executing the binary awesome-api
+run: ## Run the application in the background by executing the binary awesome-api
 	./awesome-api >./awesome-api.log 2>&1 &
 
-help: ## prints out the list of targets and their usage
+stop: ## Stop the application
+	kill "$(pgrep awesome-api)"
+
+clean-all: ## Stop the application, delete the binary awesome-api, and the log file awesome-api.log
+	pkill awesome-api
+	rm -rf awesome-api awesome-api.log
+
+test: ## Test the application
+	curl http://localhost:9999
+	curl http://localhost:9999
+
+help: ## Print out the list of targets and their usage
 	@grep -E -i [a-z]+:.# Makefile | tr -d '##'

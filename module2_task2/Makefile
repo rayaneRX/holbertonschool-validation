@@ -21,6 +21,5 @@ test: ## Test the application
 help: ## Print out the list of targets and their usage
 	@grep -E -i [a-z]+:.# Makefile | tr -d '##'
 
-unit-tests: ## Run Golang unit tests with code coverage
+unit-tests: ## execute the Golang unit tests
 	go test -v -short -coverprofile=coverage-units.out
-	

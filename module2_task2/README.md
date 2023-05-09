@@ -14,4 +14,5 @@ post:  Create a new blog post whose filename and title come from the environment
 test: Test the application
 run: Run the application in the background by executing the binary awesome-api
 stop: Stop the application, delete the binary awesome-api, and the log file awesome-api.log
+unit-tests: execute the Golang unit tests:
 help:  prints out the list of targets and their usage

@@ -42,6 +42,12 @@ func Test_HelloHandler(t *testing.T) {
       responseCode: 200,
       body:         "Hello there!",
     },
+    {
+      name:         "Home page",
+      URI:          "",
+      responseCode: 404,
+      body:         "404 page not found\n",
+    },
     // INSERT MORE TESTS HERE
   }
   for _, tt := range tests {

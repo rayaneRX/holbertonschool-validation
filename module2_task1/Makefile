@@ -2,6 +2,7 @@ lint: ## run the GolangCI-Lint tool
 	golangci-lint run
 
 build: ## Generate the website from the markdown and configuration files in the directory dist/
+	make lint
 	go build
 
 run: ## Run the application in the background by executing the binary awesome-api

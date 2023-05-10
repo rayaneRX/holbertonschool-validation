@@ -13,7 +13,7 @@ clean: ## Stop the application, delete the binary awesome-api, and the log file 
 
 test: ## Test the application
 	curl http://localhost:9999
-	curl http://localhost:9999
+	curl http://localhost:9999/health
 
 help: ## Print out the list of targets and their usage
 	@grep -E -i [a-z]+:.# Makefile | tr -d '##'

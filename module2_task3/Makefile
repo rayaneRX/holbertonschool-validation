@@ -24,5 +24,5 @@ help: ## Print out the list of targets and their usage
 
 unit-tests: ## execute the Golang unit tests
 	go test -v -short -coverprofile=coverage-units.out
-integration-tests: ## intrgrasins
+integration-tests: ## execute the Golang unit tests
 	go test -v -short -coverprofile=coverage-integrations.out

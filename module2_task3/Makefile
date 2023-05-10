@@ -16,11 +16,13 @@ clean: ## Stop the application, delete the binary awesome-api, and the log file 
 	rm -rf awesome-api awesome-api.log coverage-units.out coverage-integrations.out
 
 test: ## Test the application
-	$(MAKE) unit-tests
-	$(MAKE) integration-tests
+	make unit-tests
+	make integration-tests
 
 help: ## Print out the list of targets and their usage
 	@grep -E -i [a-z]+:.# Makefile | tr -d '##'
 
 unit-tests: ## execute the Golang unit tests
 	go test -v -short -coverprofile=coverage-units.out
+integration-tests: ## intrgrasins
+	go test -v -short -coverprofile=coverage-integrations.out

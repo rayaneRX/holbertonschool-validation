@@ -31,6 +31,12 @@ func Test_HelloHandler(t *testing.T) {
       body:         "Hello Rosalind Franklin!",
     },
     {
+      name:         "nonparametr",
+      queryString:  "name=",
+      responseCode: 400,
+      body:         "",
+    },
+    {
       name:         "Empty",
       queryString:  "",
       responseCode: 200,

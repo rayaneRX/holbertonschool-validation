@@ -16,6 +16,7 @@ clean: ## Stop the application, delete the binary awesome-api, and the log file 
 	rm -rf awesome-api awesome-api.log
 
 test: ## Test the application
+	make unit-tests
 	curl http://localhost:9999
 	curl http://localhost:9999/health
 

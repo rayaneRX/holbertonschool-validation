@@ -16,4 +16,6 @@ run: Run the application in the background by executing the binary awesome-api
 stop: Stop the application, delete the binary awesome-api, and the log file awesome-api.log
 unit-tests: execute the Golang unit tests
 integration-tests: execute the Golang unit tests
+check: Check markdonws
+validate: ## validate the html file
 help:  prints out the list of targets and their usage

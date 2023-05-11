@@ -16,4 +16,4 @@ validate: ## validate the html file in dist/
 	-python3 w3c_validator.py ./dist/index.html
 	
 help: ## Print out the list of targets and their usage
-	@grep -E -i [a-z]+:.# Makefile | tr -d '##'
+	@grep "##" Makefile | grep -v grep | sed "s/##//"

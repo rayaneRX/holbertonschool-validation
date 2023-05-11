@@ -32,4 +32,5 @@ validate: ## validate the html file in dist/
 	-python3 w3c_validator.py ./dist/index.html
 
 check: ## Check markdonws
-	meaw
+	markdownlint README.md content/posts/*.md
+	markdown-link-check README.md content/posts/*.md

@@ -30,3 +30,6 @@ integration-tests: ## execute the Golang unit tests
 
 validate: ## validate the html file in dist/
 	-python3 w3c_validator.py ./dist/index.html
+
+check: ## Check markdonws
+	meaw

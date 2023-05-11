@@ -12,7 +12,7 @@ stop: ## Stop the application
 	pkill awesome-api
 
 clean: ## Stop the application, delete the binary awesome-api, and the log file awesome-api.log
-	$(MAKE stop || true
+	make stop || true
 	rm -rf awesome-api awesome-api.log coverage-units.out coverage-integrations.out
 
 test: ## Test the application

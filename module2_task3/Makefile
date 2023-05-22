@@ -27,4 +27,4 @@ unit-tests: ## execute the Golang unit tests
 	go tool cover -func=coverage-units.out
 
 integration-tests: ## execute the Golang unit tests
-	go test -v -coverprofile=coverage-integrations.out
+	go test -v -tags=integration -coverprofile=coverage-integrations.out

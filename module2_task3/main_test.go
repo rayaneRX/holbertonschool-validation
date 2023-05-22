@@ -31,22 +31,34 @@ func Test_HelloHandler(t *testing.T) {
       body:         "Hello Rosalind Franklin!",
     },
     {
-      name:         "nonparametr",
-      queryString:  "name=",
-      responseCode: 400,
-      body:         "",
+      name:         "Chris Bikoy",
+      queryString:  "name=Chris Bikoy",
+      responseCode: 200,
+      body:         "Hello Chris Bikoy!",
     },
     {
-      name:         "Empty",
-      queryString:  "",
+      name:         "Chrisfedq Bicdskoy",
+      queryString:  "name=Chris Bikoy",
+      responseCode: 200,
+      body:         "Hello Chris Bikoy!",
+    },
+    {
+      queryString:  "name=there",
       responseCode: 200,
       body:         "Hello there!",
     },
     {
-      name:         "Home page",
-      URI:          "",
-      responseCode: 404,
-      body:         "404 page not found\n",
+      name:         "",
+      queryString:  "name=",
+      responseCode: 400,
+    },
+    {
+      responseCode: 200,
+	  body: "Hello there!",
+    },
+    {
+      queryString:  "name=",
+      responseCode: 400,
     },
     // INSERT MORE TESTS HERE
   }
@@ -66,6 +78,7 @@ func Test_HelloHandler(t *testing.T) {
       rr := httptest.NewRecorder()
       handler := http.HandlerFunc(HelloHandler)
       handler.ServeHTTP(rr, req)
+
 
       // Check that the status code is what you expect.
       expectedCode := tt.responseCode

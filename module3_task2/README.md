@@ -17,5 +17,6 @@ stop: Stop the application, delete the binary awesome-api, and the log file awes
 unit-tests: execute the Golang unit tests
 integration-tests: execute the Golang unit tests
 check: Check markdonws
-validate: ## validate the html file
+validate: validate the html file
+package: produces a file awesome-website.zip
 help: prints out the list of targets and their usagek

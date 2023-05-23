@@ -25,6 +25,8 @@ jobs:
           make integration-tests
           make validate
           make package
+      - name: archive
+        uses: actions/upload-artifact@v2
 
   create-release:
     needs: build

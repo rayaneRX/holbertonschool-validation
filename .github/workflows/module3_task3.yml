@@ -5,6 +5,8 @@ name: module3_task3
   push:
     branches:
       - main
+    tags:
+      - '*'
   schedule:
     - cron: '0 0 * * *'
 jobs:
@@ -28,7 +30,7 @@ jobs:
       - name: archive
         uses: actions/upload-artifact@v2
         with:
-          name: arwsoeme-wepsite
+          name: awesome-website
           path: ./module3_task3/awesome-website.zip
   
   create-release:

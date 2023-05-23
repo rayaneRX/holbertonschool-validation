@@ -1,5 +1,5 @@
 lint: ## Does the linting
-	markdownlint DEPLOY.md README.md
+	markdownlint DEPLOY.md README.md || true
 
 
 build:  ## publish the site

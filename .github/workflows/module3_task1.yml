@@ -1,6 +1,7 @@
-name: module3_task0
+---
+name: module3_task1
 
-on:
+'on':
   push:
     branches:
       - main
@@ -10,14 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
-    setps: 
+    steps:
       - name: Clone the repository
         uses: actions/checkout@v3
-      - name: run the setup
         run: |
           cd ./module3_task1
           ./setup.sh
+
       - name: makehelp
         run: |
-            cd modoule3_task1
-            make help
+            cd ./module3_task0
+            make build

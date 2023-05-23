@@ -1,3 +1,4 @@
+COVERAGE=coverage
 lint: ## Does the linting
 	markdownlint DEPLOY.md README.md || true
 
@@ -26,11 +27,11 @@ test: ## Tests for browser responses
 	make integration-tests
 	make validate
 
-unit-tests: ## Unitests
-	go test -v -short -coverprofile=coverage-units.out
+unit-tests: ## Run unit tests
+	go test -v -short -coverprofile=$(COVERAGE)-units.out
 
-integration-tests: ## Integration tests
-	go test -v -tags=integration -coverprofile=coverage-integrations.out
+integration-tests: ## Run integration tests
+	go test -v -coverprofile=$(COVERAGE)-integrations.out
 
 check: ## Check lint of markdonws source files and analysis of the links
 	markdownlint content/posts/welcome.md

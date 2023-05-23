@@ -38,5 +38,5 @@ check: ## Check lint of markdonws source files and analysis of the links
 validate: ## validate the html file in dist/
 	-python3 w3c_validator.py -f errors.txt dist/index.html
 	
-help: ## Prints out the list of targets and their usage
+help: ## Prints out the list of targets and their usage mml
 	@grep "##" Makefile | grep -v grep | sed "s/##//"	

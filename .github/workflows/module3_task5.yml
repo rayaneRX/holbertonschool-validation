@@ -1,5 +1,5 @@
 ---
-name: module3_task4
+name: module3_task5
 
 'on':
   push:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Run setup environment
         run: |
-          cd ./module3_task4
+          cd ./module3_task5
           ./setup.sh
           make build
           make lint
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: awesome-website
-          path: ./module3_task4/awesome-website.zip
+          path: ./module3_task5/awesome-website.zip
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
@@ -61,19 +61,19 @@ jobs:
 
       - name: Install Hugo
         run: |
-            cd module3_task4
+            cd module3_task5
             ./setup.sh
 
       - name: create package
         run: |
-            cd ./module3_task4
+            cd ./module3_task5
             make package
 
       - name: release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./module3_task4/awesome-website.zip
-          body_path: ./module3_task4/DEPLOY.md
+          files: ./module3_task5/awesome-website.zip
+          body_path: ./module3_task5/DEPLOY.md
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}

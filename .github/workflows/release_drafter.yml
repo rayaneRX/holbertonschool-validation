@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-22.04
     steps:
-      - name: release drafter
+      - name: Release Drafter
         uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

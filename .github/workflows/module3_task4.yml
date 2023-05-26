@@ -1,14 +1,11 @@
----
 name: module3_task4
 
-'on':
+on:
   push:
-    branches:
-      - main
-    tags:
-      - '*'
+  pull_request:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -16,49 +13,49 @@ jobs:
     steps:
       - name: Clone the repository
         uses: actions/checkout@v3
-
-      - name: Run setup environment
-        run: |
-          cd ./module3_task4
-          ./setup.sh
-          make build
-          make lint
-          make unit-tests
-          make integration-tests
-          make validate
-          make package
-      - name: archive
-        uses: actions/upload-artifact@v2
+      - name: Run the script
+        run: cd module3_task4 && ./setup.sh
+      - name: Makefile build
+        run: cd module3_task4 && make build
+      - name: Archive
+        run: cd module3_task4 && make package
+      - name: Upload
+        uses: actions/upload-artifact@v3
         with:
-          name: awesome-website
-          path: ./module3_task4/awesome-website.zip
-
-  create-release:
-    needs: build
-    if: startsWith(github.ref, 'refs/tags/')
-    runs-on: ubuntu-22.04
+          name: building package
+          path: module3_task4/awesome-website.zip
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          tag_name: 1.0.0
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            module3_task4/awesome-website.zip
+            module3_task4/DEPLOY.md
+  buildonotherversion:
+    runs-on: ubuntu-18.04
+    if: github.event_name == 'push' && github.ref_type == 'tag'
     steps:
       - name: Clone the repository
         uses: actions/checkout@v3
-
-      - name: install the Markdownlint
-        run: npm install -g markdownlint-cli
-
-      - name: Install Hugo
-        run: |
-            cd module3_task4
-            ./setup.sh
-
-      - name: create package
-        run: |
-            cd ./module3_task4
-            make package
-
-      - name: release
-        id: create_release
-        uses: softprops/action-gh-release@v1
+      - name: Run the script
+        run: cd module3_task4 && ./setup.sh
+      - name: Makefile build
+        run: cd module3_task4 && make build
+      - name: Archive
+        run: cd module3_task4 && make package
+      - name: Upload
+        uses: actions/upload-artifact@v3
         with:
-          files: ./module3_task4/awesome-website.zip
-          body_path: ./module3_task4/DEPLOY.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          name: build package
+          path: module3_task4/awesome-website.zip
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          tag_name: 1.0.0
+          release_name: "1.0.0"
+          files: |
+            module3_task4/awesome-website.zip
+            module3_task4/DEPLOY.md

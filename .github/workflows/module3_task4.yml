@@ -15,6 +15,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Run the script
         run: cd module3_task4 && ./setup.sh
+      - name: Markdownlint setup
+        run: npm install -g markdownlint-cli
       - name: Makefile build
         run: cd module3_task4 && make build
       - name: Archive
